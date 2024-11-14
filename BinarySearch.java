@@ -13,10 +13,9 @@ public class BinarySearch{
     int count = Integer.parseInt(fin.nextLine());
     //System.out.println(count);     this was used to check the first value
     int[] arr = new int[count];
-    fin.nextLine();
     for (int i = 0; i < arr.length; i++) {
-      System.out.print(arr[i] + " ");
       arr[i] = Integer.parseInt(fin.nextLine());
+      System.out.println(arr[i] + " ");
     }
 
 
