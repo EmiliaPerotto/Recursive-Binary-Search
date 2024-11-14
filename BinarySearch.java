@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Arrays;
 public class BinarySearch{
-  // public static int binaryMethod(){
+  public static int binaryMethod(){
 
-  // }
+  }
   public static void main(String args[]) throws IOException{
     Scanner in = new Scanner(System.in);
     System.out.println("Input filename: ");
@@ -15,8 +15,13 @@ public class BinarySearch{
     int[] arr = new int[count];
     for (int i = 0; i < arr.length; i++) {
       arr[i] = Integer.parseInt(fin.nextLine());
-      System.out.println(arr[i] + " ");
+      //System.out.println(arr[i] + " ");    print statement for the array
     }
+    Arrays.sort(arr);   //sorts the array
+    System.out.println("What number do you want to search for? Input here: ");
+    int searchVal = Integer.parseInt(in.nextLine());
+    if(binaryMethod == -1)
+
 
 
   }
