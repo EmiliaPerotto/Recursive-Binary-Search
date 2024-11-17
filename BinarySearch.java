@@ -2,18 +2,17 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Arrays;
 public class BinarySearch{
-  public static int searchVal;
   public static int binaryMethod(int[] arr, int low, int high, int searchVal){
-    if(high > low){
-      int middle = high/2; 
-      if(middle == searchVal){
+    if(high >= low){
+      int middle = (low+high)/2; 
+      if(arr[middle] == searchVal){
         return middle;
       }
       else if(arr[middle] > searchVal){
-        return binaryMethod(int[] arr, low, middle - 1, searchVal);
+        return binaryMethod(arr, low, middle - 1, searchVal);
       }
-      else{
-        return binaryMethod(int[] arr, low, middle + 1, searchVal);
+      else if(arr[middle] < searchVal){
+        return binaryMethod(arr, middle + 1, high, searchVal);
       }
     }
     return -1;
@@ -31,24 +30,19 @@ public class BinarySearch{
       arr[i] = Integer.parseInt(fin.nextLine());
       //System.out.println(arr[i] + " ");    print statement for the array
     }
+    fin.close();
     Arrays.sort(arr);   //sorts the array
-    int high = 0;
-    int low = 0;
-    for (int i = 0; i < arr.length; i++) {
-      high = arr[0];
-      low = arr[count - 1]
-      //System.out.println(high + " " + low);checking high and low
-      //System.out.println(arr[i] + " ");    print statement for the array
-    }
+      int low = 0;
+      int high = arr.length - 1;
     System.out.println("What number do you want to search for? Input here: ");
-    searchVal = Integer.parseInt(in.nextLine());
-    if(binaryMethod(arr) == -1){
+    int searchVal = Integer.parseInt(in.nextLine());
+    int result  = binaryMethod(arr, low, high, searchVal);
+    if(result == -1){
       System.out.println("The value " + searchVal + " is not in the list");
     }
     else{
-      System.out.println("The index of value " + searchVal + " is " + binaryMethod(arr));
+      System.out.println("The index of value " + searchVal + " is " + result);
     }
-
 
 
   }
